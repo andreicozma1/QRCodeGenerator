@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR</title>
+    <script src="qrcode.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h2>QR Code Generator</h2>
+<h3>by Andrei Cozma</h3>
+<div id="qrcode"></div>
+<p>Paste text/URL here:</p>
+<input type="text" id="url" value="www.andreicozma.com">
+</br>
+</br>
+<input type="submit" onclick="generate()">
+
+<script type="text/javascript">
+    var url = document.getElementById("url");
+
+    var QR = new QRCode(document.getElementById("qrcode"), {
+        text: url.value,
+        width: 512,
+        height: 512
+    });
+
+    function generate() {
+
+        console.log("Generating for: " + url.value)
+
+        QR.makeCode(url.value);
+    }
+</script>
+
+</body>
+</html>
